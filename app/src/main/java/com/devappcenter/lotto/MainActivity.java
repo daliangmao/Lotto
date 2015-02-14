@@ -1,5 +1,6 @@
 package com.devappcenter.lotto;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,13 +9,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.devappcenter.template.Header.LeftPannel;
 import com.devappcenter.template.Header.MyActionBarView;
 import com.devappcenter.template.Header.RightPannel;
 
 
-public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate {
+public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate, MainViewController.MainDelegate {
+
+    private static final int LOGIN_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,24 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
 
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            Fragment fragment = new MainViewController();
+            MainViewController fragment = new MainViewController();
+            fragment.delegate = this;
             fragmentManager.beginTransaction().replace(R.id.frame_content, fragment, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == LOGIN_REQUEST_CODE) {
+            Bundle bundle = data.getExtras();
+            String message = bundle.getString("message");
+            if (resultCode == 1) {
+
+            }
+            else {
+
+            }
         }
     }
 
@@ -84,5 +104,11 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
     @Override
     public void LeftDrawerOpen(boolean open) {
 
+    }
+
+    @Override
+    public void OnLogin() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivityForResult(intent, 100);
     }
 }
