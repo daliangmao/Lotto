@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Lotto</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello Lottery</string>
     <string name="action_settings">Settings</string>
 
 </resources>
