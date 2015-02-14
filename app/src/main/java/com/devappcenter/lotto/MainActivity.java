@@ -1,5 +1,9 @@
 package com.devappcenter.lotto;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,8 +20,13 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            Fragment fragment = new MainViewController();
+            fragmentManager.beginTransaction().replace(R.id.frame_content, fragment, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,7 +52,8 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
 
     @Override
     public void OnBack() {
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();
     }
 
     @Override
