@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:startupUI="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/btnSetting"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_sidebar_toggler"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true" />
+    <ImageButton
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/btnBack"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_back"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true" />
+
+    <com.devappcenter.template.Helper.TypefaceTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        startupUI:customTypeface="fonts/TH Niramit AS.ttf"
+        android:id="@+id/txtActionbarTitle"
+        android:textSize="12pt"
+        android:lineSpacingExtra="-3dp"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp" />
+
+</RelativeLayout>

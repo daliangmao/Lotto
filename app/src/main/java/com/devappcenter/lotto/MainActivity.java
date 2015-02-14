@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.devappcenter.template.Header.LeftPannel;
+import com.devappcenter.template.Header.MyActionBarView;
+import com.devappcenter.template.Header.RightPannel;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +39,40 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void OnBack() {
+
+    }
+
+    @Override
+    public void OnSetting() {
+
+    }
+
+    @Override
+    public void OnSearch(String keyword) {
+
+    }
+
+    @Override
+    public void didSearchViewExpand() {
+
+    }
+
+    @Override
+    public void didSearchViewShrink() {
+
+    }
+
+    @Override
+    public void LeftDrawerLock(Boolean lock) {
+
+    }
+
+    @Override
+    public void LeftDrawerOpen(boolean open) {
+
     }
 }
