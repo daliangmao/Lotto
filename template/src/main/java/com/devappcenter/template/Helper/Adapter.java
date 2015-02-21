@@ -15,13 +15,13 @@ public class Adapter extends ArrayAdapter<InterfaceItem> {
 
     private LayoutInflater mInflater;
 
-    public Adapter(Activity ctx, int resource, ArrayList<InterfaceItem> objects) {
+    public Adapter(Activity ctx, int resource, ArrayList objects) {
         super(ctx, resource, objects);
         mInflater = LayoutInflater.from(ctx);
     }
 
     public enum RowType {
-        ITEM, SECTION, EXTEND, LOGIN
+        ITEM, SECTION, HEADER, LOGIN
     }
 
     @Override

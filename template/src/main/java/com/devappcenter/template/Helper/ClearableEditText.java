@@ -152,4 +152,5 @@ public class ClearableEditText extends RelativeLayout {
         void OnShrink();
         void OnExpand();
     }
+
 }
