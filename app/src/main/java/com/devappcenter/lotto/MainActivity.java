@@ -15,6 +15,7 @@ import com.devappcenter.lotto.ViewController.Menu.MenuViewController;
 import com.devappcenter.template.Header.LeftPannel;
 import com.devappcenter.template.Header.MyActionBarView;
 import com.devappcenter.template.Header.RightPannel;
+import com.devappcenter.template.Helper.CellItem;
 import com.devappcenter.template.Helper.LeftDrawerMenu;
 
 
@@ -27,10 +28,8 @@ public class MainActivity extends DoubleDrawerActivity implements LeftPannel.Lef
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        mLeftDrawerView.addMenuItem();
-        mLeftDrawerView.addMenuItem();
-        mLeftDrawerView.addMenuItem();
-        mLeftDrawerView.addMenuItem();
+        int imgDiscover = getResources().getIdentifier("ic_list_book", "drawable", getPackageName());
+        mLeftDrawerView.addMenuItem(new CellItem("ชั้นหนังสือ", imgDiscover, 1));
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             /*

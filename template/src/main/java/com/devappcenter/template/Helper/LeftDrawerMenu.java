@@ -52,8 +52,8 @@ public class LeftDrawerMenu extends DrawerContainer {
         });
     }
 
-    public void addMenuItem() {
-
+    public void addMenuItem(CellItem item) {
+        mMenu.add(item);
     }
 
     public void setSelectItem(int index) {
