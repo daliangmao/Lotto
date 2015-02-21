@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.devappcenter.lotto.ViewController.Menu.MenuViewController;
 import com.devappcenter.template.Header.LeftPannel;
 import com.devappcenter.template.Header.MyActionBarView;
 import com.devappcenter.template.Header.RightPannel;
@@ -27,9 +28,13 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
 
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
+            /*
             MainViewController fragment = new MainViewController();
             fragment.delegate = this;
             fragmentManager.beginTransaction().replace(R.id.frame_content, fragment, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+            */
+            MenuViewController menuViewController = new MenuViewController();
+            fragmentManager.beginTransaction().replace(R.id.frame_content, menuViewController, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
         }
     }
 
