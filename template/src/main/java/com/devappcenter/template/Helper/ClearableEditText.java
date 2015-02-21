@@ -21,7 +21,7 @@ import com.devappcenter.mylibrary.R;
 public class ClearableEditText extends RelativeLayout {
 
     LayoutInflater inflater = null;
-    public EditText edit_text;
+    public EditTextBackEvent edit_text;
     Button btn_clear;
     int maxWidth;
     private boolean isShrink = true;
@@ -59,7 +59,20 @@ public class ClearableEditText extends RelativeLayout {
         inflater.inflate(R.layout.clearable_edit_text, this, true);
         delegate = null;
 
-        edit_text = (EditText) findViewById(R.id.clearable_edit);
+        edit_text = (EditTextBackEvent) findViewById(R.id.clearable_edit);
+        EditTextImeBackListener txtListener = new EditTextImeBackListener() {
+            @Override
+            public void onImeBack(EditTextBackEvent ctrl, String text) {
+
+            }
+
+            @Override
+            public void onBack() {
+                shrink();
+            }
+        };
+        edit_text.setOnEditTextImeBackListener(txtListener);
+
         btn_clear = (Button) findViewById(R.id.clearable_button_clear);
         ImageButton magnify = (ImageButton) findViewById((R.id.btnMagnify));
         magnify.setOnClickListener(new OnClickListener() {

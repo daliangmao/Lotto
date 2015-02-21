@@ -27,7 +27,9 @@ public class EditTextBackEvent extends EditText {
     @Override
     public boolean onKeyPreIme(int keyCode, KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-            if (mOnImeBack != null) mOnImeBack.onImeBack(this, this.getText().toString());
+            if (mOnImeBack != null)
+                mOnImeBack.onBack();
+                //mOnImeBack.onImeBack(this, this.getText().toString());
         }
         return super.dispatchKeyEvent(event);
     }
@@ -35,6 +37,5 @@ public class EditTextBackEvent extends EditText {
     public void setOnEditTextImeBackListener(EditTextImeBackListener listener) {
         mOnImeBack = listener;
     }
-
 }
 

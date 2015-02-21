@@ -15,17 +15,22 @@ import com.devappcenter.lotto.ViewController.Menu.MenuViewController;
 import com.devappcenter.template.Header.LeftPannel;
 import com.devappcenter.template.Header.MyActionBarView;
 import com.devappcenter.template.Header.RightPannel;
+import com.devappcenter.template.Helper.LeftDrawerMenu;
 
 
-public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate, MainViewController.MainDelegate {
+public class MainActivity extends DoubleDrawerActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate,
+        MainViewController.MainDelegate, LeftDrawerMenu.MenuDelegate {
 
     private static final int LOGIN_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        //setContentView(R.layout.activity_main);
+        mLeftDrawerView.addMenuItem();
+        mLeftDrawerView.addMenuItem();
+        mLeftDrawerView.addMenuItem();
+        mLeftDrawerView.addMenuItem();
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             /*
@@ -34,7 +39,7 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
             fragmentManager.beginTransaction().replace(R.id.frame_content, fragment, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
             */
             MenuViewController menuViewController = new MenuViewController();
-            fragmentManager.beginTransaction().replace(R.id.frame_content, menuViewController, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, menuViewController, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
         }
     }
 
@@ -115,5 +120,10 @@ public class MainActivity extends ActionBarActivity implements LeftPannel.LeftPa
     public void OnLogin() {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivityForResult(intent, 100);
+    }
+
+    @Override
+    public void didMenuSelectItem(Integer index) {
+
     }
 }

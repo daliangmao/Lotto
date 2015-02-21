@@ -6,7 +6,7 @@
     android:focusable="true"
     android:background="@drawable/search_background_color">
 
-    <EditText
+    <com.devappcenter.template.Helper.EditTextBackEvent
         android:id="@+id/clearable_edit"
         android:layout_width="200dp"
         android:layout_height="32dp"
