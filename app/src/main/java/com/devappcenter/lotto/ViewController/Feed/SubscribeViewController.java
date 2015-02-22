@@ -28,6 +28,11 @@ public class SubscribeViewController extends FeedViewController {
 
     }
 
+    @Override
+    public void OnInitialize() {
+
+    }
+
     private class SubscribeView extends ViewCell {
 
         public SubscribeView(Context context, JSONObject json) {

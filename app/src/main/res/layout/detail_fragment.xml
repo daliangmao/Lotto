@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.devappcenter.template.Helper.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:startupUI="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="152dp"
+                android:layout_height="188dp"
+                android:id="@+id/imgDetailCover"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="6px"
+                android:paddingTop="4px"
+                android:paddingRight="8px"
+                android:paddingBottom="9px"
+                android:background="@drawable/menu_popup_panel_holo_light" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-SemiBold.ttf"
+                android:text="Title"
+                android:textColor="@color/gray"
+                android:textSize="12pt"
+                android:id="@+id/txtDetailTitle"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/imgDetailCover"
+                android:layout_toEndOf="@+id/imgDetailCover" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Author"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtDetailAuthor"
+                android:layout_alignParentTop="false"
+                android:layout_below="@+id/txtDetailTitle"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignLeft="@+id/txtDetailTitle"
+                android:layout_alignStart="@+id/txtDetailTitle" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightgray"
+                android:layout_below="@+id/txtDetailAuthor"
+                android:layout_toRightOf="@+id/imgDetailCover"
+                android:layout_toEndOf="@+id/imgDetailCover"
+                android:layout_marginRight="10dp" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="ประเภท"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/lblType"
+                android:layout_below="@+id/txtDetailAuthor"
+                android:layout_alignLeft="@+id/txtDetailAuthor"
+                android:layout_alignRight="@+id/lblPublisher"
+                android:layout_marginTop="10dp" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Type"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtType"
+                android:layout_toRightOf="@+id/lblType"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/lblType" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="ซีรีส์ชุด"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/lblSeries"
+                android:layout_below="@+id/lblType"
+                android:layout_alignLeft="@+id/lblType"
+                android:layout_alignRight="@+id/lblPublisher" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Series"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtSeries"
+                android:layout_toRightOf="@+id/lblSeries"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/lblSeries" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="สำนักพิมพ์  "
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/lblPublisher"
+                android:layout_below="@+id/lblSeries"
+                android:layout_alignLeft="@+id/txtDetailAuthor" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Publisher"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtPublisher"
+                android:layout_toRightOf="@+id/lblPublisher"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/lblPublisher" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="วางแผง"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/lblPublish"
+                android:layout_below="@+id/lblPublisher"
+                android:layout_alignRight="@+id/lblPublisher"
+                android:layout_alignLeft="@+id/lblSeries" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Publish"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtPublish"
+                android:layout_toRightOf="@+id/lblPublish"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/lblPublish" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="ราคา"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/lblPrice"
+                android:layout_below="@+id/lblPublish"
+                android:layout_alignRight="@+id/lblPublisher"
+                android:layout_alignLeft="@+id/lblPublish"
+                android:layout_alignStart="@+id/lblPublish" />
+
+            <com.devappcenter.template.Helper.TypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                startupUI:customTypeface="fonts/ThaiSansNeue-Regular.ttf"
+                android:text="Price"
+                android:textColor="@color/gray"
+                android:textSize="10pt"
+                android:id="@+id/txtPrice"
+                android:layout_toRightOf="@+id/lblPrice"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/lblPrice" />
+        </RelativeLayout>
+
+    </FrameLayout>
+</com.devappcenter.template.Helper.BounceScrollView>
