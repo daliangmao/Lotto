@@ -1,4 +1,4 @@
-package com.devappcenter.lotto.ViewController.Feed;
+package com.devappcenter.template.Helper;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,17 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.devappcenter.lotto.R;
-import com.devappcenter.template.Helper.Adapter;
-import com.devappcenter.template.Helper.UrlLoadAsync;
-import com.devappcenter.template.Helper.ViewCell;
-import com.google.gson.JsonObject;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
+import com.devappcenter.mylibrary.R;
+import com.devappcenter.template.Helper.TwoWayGridView.TwoWayAdapterView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -38,9 +32,9 @@ public abstract class FeedViewController extends Fragment {
     private Integer page;
     private Adapter adapter;
     private String preload;
-    protected String hostname;
     public abstract String getUrl();
     public abstract ViewCell cellForItemAtIndex(JSONObject obj, Integer position);
+    public abstract void OnItemClick(Integer position);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,14 +43,19 @@ public abstract class FeedViewController extends Fragment {
             preload = getArguments().getString("data");
         }
         adapter = new Adapter(getActivity(), android.R.layout.simple_list_item_1, new ArrayList());
-        hostname = getResources().getString(R.string.host_name);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.menu_fragment, container, false);
-        listMenu = (ListView) view.findViewById(R.id.list_menu);
+        View view = inflater.inflate(R.layout.feed_fragment, container, false);
+        listMenu = (ListView) view.findViewById(R.id.list_feed_item);
         listMenu.setAdapter(adapter);
+        listMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                OnItemClick(position);
+            }
+        });
         if (preload == null) {
             Feed(0);
         }

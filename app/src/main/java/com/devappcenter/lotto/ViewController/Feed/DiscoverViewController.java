@@ -1,6 +1,8 @@
 package com.devappcenter.lotto.ViewController.Feed;
 
+import com.devappcenter.lotto.R;
 import com.devappcenter.lotto.ViewController.Feed.View.Discover;
+import com.devappcenter.template.Helper.FeedViewController;
 import com.devappcenter.template.Helper.ViewCell;
 
 import org.apache.http.NameValuePair;
@@ -17,12 +19,17 @@ public class DiscoverViewController extends FeedViewController {
 
     @Override
     public String getUrl() {
-        return hostname+"/discover.php";
+        return getResources().getString(R.string.host_name)+"/discover.php";
     }
 
     @Override
     public ViewCell cellForItemAtIndex(JSONObject obj, Integer position) {
         return new Discover(getActivity(), obj);
+    }
+
+    @Override
+    public void OnItemClick(Integer position) {
+
     }
 
     @Override

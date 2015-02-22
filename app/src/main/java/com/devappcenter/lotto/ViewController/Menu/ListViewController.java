@@ -8,21 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devappcenter.lotto.R;
 import com.devappcenter.template.Helper.Adapter;
-import com.devappcenter.template.Helper.InterfaceItem;
 import com.devappcenter.template.Helper.ViewCell;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Andy on 2/21/15 AD.
@@ -58,7 +55,7 @@ public class ListViewController extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.menu_fragment, container, false);
+        View view = inflater.inflate(R.layout.feed_fragment, container, false);
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getActivity().getResources().getStringArray(R.array.mymenu));
         ListView listMenu = (ListView) view.findViewById(R.id.list_menu);
         listMenu.setAdapter(adapter);
