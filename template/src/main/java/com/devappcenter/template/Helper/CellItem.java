@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class CellItem implements InterfaceItem {
 
     protected String mTitle;
-    private int mImage;
+    protected int mImage;
     private int mTag;
     public boolean selected;
 

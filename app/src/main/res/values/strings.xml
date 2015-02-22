@@ -11,4 +11,5 @@
         <item>two</item>
         <item>three</item>
     </string-array>
+    <string name="host_name">http://www.lightoflovenovel.com/ebook/ios</string>
 </resources>

@@ -4,23 +4,19 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.devappcenter.lotto.ViewController.Menu.MenuViewController;
+import com.devappcenter.lotto.ViewController.Feed.DiscoverViewController;
+import com.devappcenter.lotto.ViewController.MainViewController;
+import com.devappcenter.lotto.ViewController.Menu.ListViewController;
 import com.devappcenter.template.Header.LeftPannel;
 import com.devappcenter.template.Header.MyActionBarView;
 import com.devappcenter.template.Header.RightPannel;
-import com.devappcenter.template.Helper.CellItem;
-import com.devappcenter.template.Helper.LeftDrawerMenu;
 
 
-public class MainActivity extends DoubleDrawerActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate,
-        MainViewController.MainDelegate, LeftDrawerMenu.MenuDelegate {
+public class MainActivity extends DoubleDrawerActivity implements LeftPannel.LeftPannelDelegate, RightPannel.RightPannelDelegate, MyActionBarView.HeaderDelegate {
 
     private static final int LOGIN_REQUEST_CODE = 100;
 
@@ -32,15 +28,36 @@ public class MainActivity extends DoubleDrawerActivity implements LeftPannel.Lef
         //mLeftDrawerView.addMenuItem(new CellItem("ชั้นหนังสือ", imgDiscover, 1));
         mLeftDrawerView.setMenu(new SidebarMenu(this), 0);
         if (savedInstanceState == null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            /*
+            didMenuSelectItem(0);
+             /*
             MainViewController fragment = new MainViewController();
             fragment.delegate = this;
             fragmentManager.beginTransaction().replace(R.id.frame_content, fragment, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
-            */
-            MenuViewController menuViewController = new MenuViewController();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            ListViewController menuViewController = new ListViewController();
             fragmentManager.beginTransaction().replace(R.id.content_frame, menuViewController, "DISCOVER").setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+            */
         }
+    }
+
+    @Override
+    public void didMenuSelectItem(Integer index) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment viewController = null;
+        switch (index) {
+            case 0:
+                viewController = new MainViewController();
+                break;
+            case 1:
+                viewController = new ListViewController();
+                break;
+            case 2:
+                viewController = new DiscoverViewController();
+                break;
+            default:
+                break;
+        }
+        fragmentManager.beginTransaction().replace(R.id.content_frame, viewController, viewController.getClass().getSimpleName()).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
 
     @Override
@@ -116,14 +133,4 @@ public class MainActivity extends DoubleDrawerActivity implements LeftPannel.Lef
 
     }
 
-    @Override
-    public void OnLogin() {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivityForResult(intent, 100);
-    }
-
-    @Override
-    public void didMenuSelectItem(Integer index) {
-
-    }
 }

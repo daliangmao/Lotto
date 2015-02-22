@@ -19,7 +19,7 @@ import com.devappcenter.template.Helper.NetworkState;
 /**
  * Created by Andy on 8/17/14 AD.
  */
-public class DoubleDrawerActivity extends FragmentActivity {
+public class DoubleDrawerActivity extends FragmentActivity implements LeftDrawerMenu.MenuDelegate {
 
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -138,5 +138,10 @@ public class DoubleDrawerActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void didMenuSelectItem(Integer index) {
+
     }
 }

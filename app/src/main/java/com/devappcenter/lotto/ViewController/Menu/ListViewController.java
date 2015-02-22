@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Andy on 2/21/15 AD.
  */
-public class MenuViewController extends Fragment {
+public class ListViewController extends Fragment {
 
     private ArrayList<ViewCell> menuItems;
     Adapter adapter;
