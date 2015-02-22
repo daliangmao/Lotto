@@ -31,25 +31,30 @@ public class LeftDrawerMenu extends DrawerContainer {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.main_menu, this, true);
         mDrawerList = (ListView) v.findViewById(R.id.listViewMenu);
-        mMenu = new ListMenu(getContext());
-        AdapterSetting = new Adapter((android.app.Activity) getContext(), android.R.layout.simple_list_item_activated_1, mMenu);
-        mDrawerList.setAdapter(AdapterSetting);
-        mDrawerList.setSelection(2);
+        //mMenu = new ListMenu(getContext());
+        //AdapterSetting = new Adapter((android.app.Activity) getContext(), android.R.layout.simple_list_item_activated_1, mMenu);
+        //mDrawerList.setAdapter(AdapterSetting);
+        //mDrawerList.setSelection(2);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position > 0) {
-                    selectItem.selected = false;
-                    selectItem = (CellItem) mMenu.get(position);
-                    selectItem.selected = true;
-                    AdapterSetting.notifyDataSetChanged();
-                }
-                else {
-
-                }
+                selectItem.selected = false;
+                selectItem = (CellItem) mMenu.get(position);
+                selectItem.selected = true;
+                AdapterSetting.notifyDataSetChanged();
                 delegate.didMenuSelectItem(position);
             }
         });
+    }
+
+    public void setMenu(ListMenu menu, Integer selIndex) {
+        if (mMenu == null) {
+            mMenu = menu;
+            AdapterSetting = new Adapter((android.app.Activity) getContext(), android.R.layout.simple_list_item_activated_1, mMenu);
+            mDrawerList.setAdapter(AdapterSetting);
+            mDrawerList.setSelection(selIndex);
+            setSelectItem(selIndex);
+        }
     }
 
     public void addMenuItem(CellItem item) {

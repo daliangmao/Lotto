@@ -28,8 +28,9 @@ public class MainActivity extends DoubleDrawerActivity implements LeftPannel.Lef
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        int imgDiscover = getResources().getIdentifier("ic_list_book", "drawable", getPackageName());
-        mLeftDrawerView.addMenuItem(new CellItem("ชั้นหนังสือ", imgDiscover, 1));
+        //int imgDiscover = getResources().getIdentifier("ic_list_book", "drawable", getPackageName());
+        //mLeftDrawerView.addMenuItem(new CellItem("ชั้นหนังสือ", imgDiscover, 1));
+        mLeftDrawerView.setMenu(new SidebarMenu(this), 0);
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             /*
